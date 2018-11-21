@@ -1,0 +1,100 @@
+<LanguagePacks>
+<!-->
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>10240</Build>
+        <FriendlyBuild>1507</FriendlyBuild>
+        <Architecture>x64</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath></DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>10240</Build>
+        <FriendlyBuild>1507</FriendlyBuild>
+        <Architecture>x86</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath></DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>10586</Build>
+        <FriendlyBuild>1511</FriendlyBuild>
+        <Architecture>x64</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath></DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>10586</Build>
+        <FriendlyBuild>1511</FriendlyBuild>
+        <Architecture>x86</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath></DownloadPath>
+    </LanguagePack>
+-->
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>14393</Build>
+        <FriendlyBuild>1607</FriendlyBuild>
+        <Architecture>x64</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath>http://download.windowsupdate.com/c/msdownload/update/software/updt/2016/07/lp_6cb8e04b938b9c8b20221317db1f5b381ef00531.cab</DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>14393</Build>
+        <FriendlyBuild>1607</FriendlyBuild>
+        <Architecture>x86</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath>http://download.windowsupdate.com/d/msdownload/update/software/updt/2016/07/lp_d17ad4e6831135935760d21e2c8689b667430d0b.cab</DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>15063</Build>
+        <FriendlyBuild>1703</FriendlyBuild>
+        <Architecture>x64</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath>http://download.windowsupdate.com/c/msdownload/update/software/updt/2017/03/lp_38a2c8c87c52a0dbe0c1cbf98fe79377383063ec.cab</DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>15063</Build>
+        <FriendlyBuild>1703</FriendlyBuild>
+        <Architecture>x86</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath>http://download.windowsupdate.com/d/msdownload/update/software/updt/2017/03/lp_0a10108b62b6aba7980db59d12f8f05c01658e75.cab</DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>16299</Build>
+        <FriendlyBuild>1709</FriendlyBuild>
+        <Architecture>x64</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath>http://download.windowsupdate.com/c/msdownload/update/software/updt/2017/10/lp_0f6159efd19732f2d03da6cdc977cdd19160ccc1.cab</DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>16299</Build>
+        <FriendlyBuild>1709</FriendlyBuild>
+        <Architecture>x86</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath>http://download.windowsupdate.com/d/msdownload/update/software/updt/2017/10/lp_9b49d8191c77af33400728f47ec993ea695acde0.cab</DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>17134</Build>
+        <FriendlyBuild>1803</FriendlyBuild>
+        <Architecture>x64</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath>http://download.windowsupdate.com/c/msdownload/update/software/updt/2018/04/lp_0592f4ca7e1ed46dc37ac096a6dc3338d651342e.cab</DownloadPath>
+    </LanguagePack>
+    <LanguagePack>
+        <Product>Windows 10</Product>
+        <Build>17134</Build>
+        <FriendlyBuild>1803</FriendlyBuild>
+        <Architecture>x86</Architecture>
+        <Locale>en-US</Locale>
+        <DownloadPath>http://download.windowsupdate.com/d/msdownload/update/software/updt/2018/04/lp_c1c8dd139fb523fe9b97e23b100381c63d1d054c.cab</DownloadPath>
+    </LanguagePack>
+</LanguagePacks>
