@@ -5,6 +5,10 @@
     This script will download Language Packs from Windows Update and create packages for them in ConfigMgr.
 .PARAMETER SiteServer
     Site server where the SMS Provider is installed.
+.PARAMETER PackageSourcePath
+    Root path where Language Pack package source files will be stored.
+.PARAMETER XmlSourcePath
+    Path where the XML file containing download URLs is stored.
 .EXAMPLE
     .\New-WULanguagePackPackage.ps1 -SiteServer "CM01" -PackageSourcePath "\\CM01\Sources\OSD\LanguagePacks\Windows10" -XmlSourcePath ".\lp_download.xml"
 .NOTES
@@ -16,6 +20,7 @@
     
     Version history:
     1.0.0 - (2018-11-20) Script created
+    1.0.1 - (2018-11-23) Add ConfigMgr Package creation
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]
@@ -82,15 +87,38 @@ Process {
     $i = 0
     foreach ($lp in $source.LanguagePacks.LanguagePack)
     {
-        Write-Progress -Activity "Downloading Language Packs from Windows Update" -Status "Downloading $($lp.Locale) language pack for $($lp.Product) $($lp.FriendlyBuild) ($($lp.Architecture))" -PercentComplete (($i / $totalSource) * 100)
+        try {
+            $subFolderPath = Join-Path -Path $PackageSourcePath -ChildPath ($lp.FriendlyBuild + "\" + $lp.Architecture + "\" + $lp.Locale) 
+            if (!(Test-Path -Path $subFolderPath)) {
+                Write-Verbose -Message "Creating folder: $($subFolderPath)"
+                New-Item -Path $subFolderPath -ItemType Directory -Force -ErrorAction Stop -Verbose:$false | Out-Null
+            }
+        }
+        catch {
+            Write-Warning -Message "Unable to create subfolders. Error message: $($_.Exception.Message)" ; break
+        }
+
+        Write-Progress -Activity "Creating Language Packs from Windows Update" -Status "Processing $($lp.Locale) language pack for $($lp.Product) $($lp.FriendlyBuild) ($($lp.Architecture))" -PercentComplete (($i / $totalSource) * 100)
         
         try {
-            Start-BitsTransfer -Destination $PackageSourcePath -Source $lp.DownloadPath -Description "Downloading $($lp.DownloadPath)" -ErrorAction Continue
+            Start-BitsTransfer -Destination $subFolderPath -Source $lp.DownloadPath -Description "Downloading $($lp.DownloadPath)" -ErrorAction Continue
         }
         catch {
             Write-Warning -Message "$($_.Exception.Message). Line: $($_.InvocationInfo.ScriptLineNumber)" ; break
         }
 
+        try {
+            Set-Location -Path $SiteDrive -ErrorAction Stop -Verbose:$false
+
+            $LanguagePackageName = -join@("Language Pack - ", $lp.Product, " ", $lp.FriendlyBuild, " ", $lp.Architecture)
+            Write-Verbose -Message "Creating Language Pack package: $($LanguagePackageName)"
+            $LanguagePackPackage = New-CMPackage -Name $LanguagePackageName -Language $lp.Locale -Version $lp.Build -Path $subFolderPath -ErrorAction Stop -Verbose:$false
+
+            Set-Location -Path $CurrentLocation
+        }
+        catch {
+            Write-Warning -Message "Unable to create Language Pack package. Error message: $($_.Exception.Message)" ; break
+        }
         $i++
     }
 }
